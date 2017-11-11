@@ -1,0 +1,9 @@
+@font-face {
+	font-family: "Arsenal Regular";
+	src: url("../fonts/Arsenal_Regular.otf");
+}
+
+body{
+	font-family: "Arsenal Regular";
+	color:#37393a;
+}

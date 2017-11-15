@@ -111,7 +111,6 @@ input:valid + .label {
 .border{
   position: relative;
   background: white;
-  margin: 25%;
   padding: 3em;
   border-radius: .25em;
   -webkit-filter: drop-shadow(0 0 2em rgba(0,0,0,0.2));

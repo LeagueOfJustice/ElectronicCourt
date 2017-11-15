@@ -4,12 +4,11 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Блаблабла</title>
+		<title>Створити документ</title>
 		<link rel="shortcut icon" href="images/icon.png" type="image/jpg">
 		<meta name="author" content="LeagueOfJustice">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/customFont.css">
-    <script src="bootstrap.min.css"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	</head>
 
@@ -41,20 +40,26 @@
 		        		<a class="nav-link" href="#">Відгуки</a>
 		      		</li>
 		      		<li class="nav-item">
+		        		<a class="nav-link" href="#" style="color:#6b6a6a"></a>
+		      		</li>
+		      		<li class="nav-item">
 		        		<a class="nav-link" href="#" style="color:#6b6a6a">Вихід</a>
 		      		</li>
 		    	</ul>
 		  	</div>
 		</nav>
-    <br></br>
-		<div class="container"style=" text-align: right">
-      <form id='creating_document'>
-        <p>Господарський суд Львівської області</p>
-        <p> 79014, м. Львів вул. Личаківська, 128 </p>
+
+    	
+		<div class="container" style=" text-align: right">
+			<br>
+    		<br>
+      		<form id='creating_document'>
+        		<p>Господарський суд Львівської області</p>
+        		<p> 79014, м. Львів вул. Личаківська, 128 </p>
 
 				Від:  <input id='author-name' type="text" size="35" >
 				<br>
-        Номер справи: <input id='deal-name' type="text" size="35">
+        		Номер справи: <input id='deal-name' type="text" size="35">
 				<br>
 				Позивач:   <input id='pozyvach' size="35" >
 				<br>
@@ -62,15 +67,20 @@
 				<br>
 				Предмет спору:  <input id='predmet' size="35" >
 				<br>
-        <p style="text-align: center">Заява</p>
-        <textarea id='text-document' class="form-control" rows="15"></textarea>
-        <br>
-				<input type="button" value="Надіслати" class="btn btn-primary" onclick="addNews()">
+        		<p style="text-align: center">Заява</p>
+        		<textarea id='text-document' class="form-control" rows="15"></textarea>
+        		<br>
+				<input type="button" value="Надіслати" class="btn btn-primary" onclick="createDocument()">
 			</form>
 		</div>
 
 		<script src="js/jquery-3.2.1.slim.min.js"></script>
 		<script src="js/popper.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script>
+			function createDocument(){
+				alert("Document created");
+			}
+		</script>
 	</body>
 </html>

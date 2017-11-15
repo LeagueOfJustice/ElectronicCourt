@@ -9,6 +9,7 @@
 		<meta name="author" content="LeagueOfJustice">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/customFont.css">
+    <script src="bootstrap.min.css"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	</head>
 
@@ -46,24 +47,22 @@
 		  	</div>
 		</nav>
     <br></br>
-		<div class="container">
+		<div class="container"style=" text-align: right">
       <form id='creating_document'>
-        <p>Від:</p>
-				<input id='author-name' type="text" class="form-control" >
+        <p>Господарський суд Львівської області</p>
+        <p> 79014, м. Львів вул. Личаківська, 128 </p>
+
+				Від:  <input id='author-name' type="text" size="35" >
 				<br>
-        <p>Номер справи:</p>
-				<input id='deal-name' type="text" class="form-control">
+        Номер справи: <input id='deal-name' type="text" size="35">
 				<br>
-        <p>Позивач:</p>
-				<textarea id='pozyvach' class="form-control" ></textarea>
+				Позивач:   <input id='pozyvach' size="35" >
 				<br>
-        <p>Відповідач:</p>
-				<textarea id='vidpovidach' class="form-control" ></textarea>
+				Відповідач:  <input id='vidpovidach' size="35" >
 				<br>
-        <p>Предмет спору:</p>
-				<textarea id='predmet' class="form-control" ></textarea>
+				Предмет спору:  <input id='predmet' size="35" >
 				<br>
-        <p>Текст заяви:</p>
+        <p style="text-align: center">Заява</p>
         <textarea id='text-document' class="form-control" rows="15"></textarea>
         <br>
 				<input type="button" value="Надіслати" class="btn btn-primary" onclick="addNews()">

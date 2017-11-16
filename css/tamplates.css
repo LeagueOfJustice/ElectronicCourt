@@ -6,3 +6,7 @@
   font-size: 20px;
   text-align: center;
 }
+
+.card{
+  box-shadow: 2px 2px 5px #d7dde5;
+}

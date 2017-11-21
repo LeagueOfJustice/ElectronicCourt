@@ -49,7 +49,7 @@
 		  	</div>
 		</nav>
 
-    	
+
 		<div class="container" style=" text-align: right">
 			<br>
     		<br>
@@ -58,29 +58,28 @@
         		<p> 79014, м. Львів вул. Личаківська, 128 </p>
 
 				Від:  <input id='author-name' type="text" size="35" >
-				<br>
+				<br></br>
         		Номер справи: <input id='deal-name' type="text" size="35">
-				<br>
+				<br></br>
 				Позивач:   <input id='pozyvach' size="35" >
-				<br>
+				<br></br>
 				Відповідач:  <input id='vidpovidach' size="35" >
-				<br>
+				<br></br>
 				Предмет спору:  <input id='predmet' size="35" >
-				<br>
+				<br></br>
         		<p style="text-align: center">Заява</p>
         		<textarea id='text-document' class="form-control" rows="15"></textarea>
-        		<br>
-				<input type="button" value="Надіслати" class="btn btn-primary" onclick="createDocument()">
+        		<br></br>
+
+				<input type="button" value="Надіслати" class="btn btn-primary" onclick="creatingDocument()">
+				<br></br>
 			</form>
 		</div>
 
 		<script src="js/jquery-3.2.1.slim.min.js"></script>
 		<script src="js/popper.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-		<script>
-			function createDocument(){
-				alert("Document created");
-			}
-		</script>
+		<script src="creating_document.js"></script>
+
 	</body>
 </html>

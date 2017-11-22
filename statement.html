@@ -4,18 +4,17 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Блаблабла</title>
+		<title>Створення заяви</title>
 		<link rel="shortcut icon" href="images/icon.png" type="image/jpg">
 		<meta name="author" content="LeagueOfJustice">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/customFont.css">
-    <script src="bootstrap.min.css"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	</head>
 
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light bg-faded" style="background: #f0f0f0">
-			<a class="navbar-brand" href="#">
+			<a class="navbar-brand" href="main.html">
 				<img src="images/icon.png" width="50" height="50" class="d-inline-block align-top" alt="">
 			</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,10 +24,10 @@
 		  		<ul class="navbar-nav mr-auto">
 		  		</ul>
 		    	<ul class="nav navbar-nav">
-		      		<li class="nav-item active">
-		        		<a class="nav-link" href="#">Головна <span class="sr-only">(current)</span></a>
+		      		<li class="nav-item ">
+		        		<a class="nav-link" href="main.html">Головна <span class="sr-only">(current)</span></a>
 		      		</li>
-		      		<li class="nav-item dropdown">
+		      		<li class="nav-item dropdown active">
 		        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		          		Документи
 		        		</a>
@@ -41,36 +40,46 @@
 		        		<a class="nav-link" href="#">Відгуки</a>
 		      		</li>
 		      		<li class="nav-item">
+		        		<a class="nav-link" href="#" style="color:#6b6a6a"></a>
+		      		</li>
+		      		<li class="nav-item">
 		        		<a class="nav-link" href="#" style="color:#6b6a6a">Вихід</a>
 		      		</li>
 		    	</ul>
 		  	</div>
 		</nav>
-    <br></br>
-		<div class="container"style=" text-align: right">
-      <form id='creating_document'>
-        <p>Господарський суд Львівської області</p>
-        <p> 79014, м. Львів вул. Личаківська, 128 </p>
+
+
+		<div class="container" style=" text-align: right">
+			<br>
+    		<br>
+      		<form id='creating_document'>
+        		<p>Господарський суд Львівської області</p>
+        		<p> 79014, м. Львів вул. Личаківська, 128 </p>
 
 				Від:  <input id='author-name' type="text" size="35" >
-				<br>
-        Номер справи: <input id='deal-name' type="text" size="35">
-				<br>
+				<br></br>
+        		Номер справи: <input id='deal-name' type="text" size="35">
+				<br></br>
 				Позивач:   <input id='pozyvach' size="35" >
-				<br>
+				<br></br>
 				Відповідач:  <input id='vidpovidach' size="35" >
-				<br>
+				<br></br>
 				Предмет спору:  <input id='predmet' size="35" >
-				<br>
-        <p style="text-align: center">Заява</p>
-        <textarea id='text-document' class="form-control" rows="15"></textarea>
-        <br>
-				<input type="button" value="Надіслати" class="btn btn-primary" onclick="addNews()">
+				<br></br>
+        		<p style="text-align: center">Заява</p>
+        		<textarea id='text-document' class="form-control" rows="15"></textarea>
+        		<br></br>
+
+				<input type="button" value="Надіслати" class="btn btn-primary" onclick="creatingDocument()">
+				<br></br>
 			</form>
 		</div>
 
 		<script src="js/jquery-3.2.1.slim.min.js"></script>
 		<script src="js/popper.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script src="creating_document.js"></script>
+
 	</body>
 </html>

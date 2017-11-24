@@ -1,6 +1,6 @@
 function creatingDocument() {
     if ( $('#author-name').val() === "" || $('#deal-name').val() === ""
-    || $('#pozyvach').val() === "" || $('#vidpovidach').val() === "" || $('#predmet').val() === "" || $('#text-document').val() === "" ) {
+    || $('#Plaintiff').val() === "" || $('#Defendant').val() === "" || $('#Subject').val() === "" || $('#text-document').val() === "" ) {
         alert('Заповніть всі поля');
         return false;
     } else {
@@ -10,9 +10,9 @@ function creatingDocument() {
         var name = document.getElementById('text-document').value;
         var img = document.getElementById('author-name').value;
         var img = document.getElementById('deal-name').value;
-        var img = document.getElementById('pozyvach').value;
-        var img = document.getElementById('vidpovidach').value;
-        var img = document.getElementById('predmet').value;
+        var img = document.getElementById('Plaintiff').value;
+        var img = document.getElementById('Defendant').value;
+        var img = document.getElementById('Subject').value;
 
         parentElem.appendChild(out);
         document.getElementById('form').reset();

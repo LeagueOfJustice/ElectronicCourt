@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Головна</title>
+		<title>Отримані</title>
 		<link rel="shortcut icon" href="images/icon.png" type="image/jpg">
 		<meta name="author" content="LeagueOfJustice">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -24,10 +24,10 @@
 		  		<ul class="navbar-nav mr-auto">
 		  		</ul>
 		    	<ul class="nav navbar-nav">
-		      		<li class="nav-item active">
+		      		<li class="nav-item">
 		        		<a class="nav-link" href="main.html">Головна <span class="sr-only">(current)</span></a>
 		      		</li>
-		      		<li class="nav-item dropdown">
+		      		<li class="nav-item dropdown active">
 		        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		          		Документи
 		        		</a>
@@ -51,8 +51,6 @@
 
 		<div class="container">
 			<br>
-			<center><a href="document_tamplates.html"><button type="button" class="btn btn-primary">Створити документ</button></a></center>
-			<br>
 			<h3>Останні отримані документи:</h3>
 			<br>
 			<div class="row" style="margin-bottom: 10px">
@@ -69,7 +67,7 @@
 					<h5></h5>
 				</div>
 			</div>
-			<div class="list-group">
+			<div class="list-group" id="email-list">
 				<a href="#" class="list-group-item list-group-item-action">
 					<div class="row">
 						<div class = "col">
@@ -167,12 +165,21 @@
 					</div>
 				</a>
 			</div>
+			<br>
+			<center><button type="button" class="btn btn-default btn-lg" onclick="addMail()" >Завантажити ще...</button></center>
+			<br>
 		</div>
 
 		<script src="js/jquery-3.2.1.slim.min.js"></script>
 		<script src="js/popper.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script>
+			function addMail(){
+				var element = document.getElementById("email-list");
+				for(var i = 0; i < 4; i++){
+					element.innerHTML += '<a href="#" class="list-group-item list-group-item-action"> <div class="row"> <div class = "col"> <img src="images/document.png" height="30" width="30" alt=""> <span>Документ 4</span> </div> <div class="col-2"> <span>Господарський суд</span> </div> <div class="col-2"> <span>11.11.2017</span> </div> <div class="col-2"> <span> <button type="button" class="btn btn-link" onclick="cloud()"> <img src="images/cloud.png" height="30" width="30" alt=""> </button> <button type="button" class="btn btn-link" onclick="print()"> <img src="images/print.png" height="30" width="30" alt=""> </button> </span> </div> </div> </a>'
+				}
+			}
 			function cloud(){
 				alert("Cloud");
 			}

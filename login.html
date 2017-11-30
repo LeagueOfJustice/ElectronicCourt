@@ -9,18 +9,16 @@
 		<link rel="shortcut icon" href="images/icon.png" type="image/jpg">
 		<link rel="stylesheet" href="css\loginstyle.css">
 		<link rel="stylesheet" href="css/customFont.css">
+		<script src="login.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 
 	<body>
 
-
 		<div class="container">
-
 
 			<div class="border">
 				<p>Вхід</p>
-
-
 
 		        <div class="field">
 		          <input type="text" id="fieldUser" class="input" required pattern=.*\S.* />
@@ -31,7 +29,7 @@
 		          <label for="fieldPassword" class="label">Пароль</label>
 		        </div>
 		        <div class="profile__footer">
-		          <button class="btn">Увійти</button>
+		         <button  class="btn" onclick="login()" value="Send">Увійти</button>
 		        </div>
 		      </div>
 				</div>

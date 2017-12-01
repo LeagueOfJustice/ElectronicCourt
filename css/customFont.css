@@ -1,9 +1,9 @@
 @font-face {
-	font-family: "Arsenal Regular";
-	src: url("../fonts/Arsenal_Regular.otf");
+	font-family: "NatGrotesk";
+	src: url("../fonts/NatGrotesk_light.ttf");
 }
 
 body{
-	font-family: "Arsenal Regular";
+	font-family: "NatGrotesk";
 	color:#37393a;
 }

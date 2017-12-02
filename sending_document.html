@@ -51,16 +51,34 @@
 
 		<div class="container">
       <br></br>
-			<h3>Надсилання документа</h3>
+			<center><h3>Надсилання документа</h3></center>
       <br></br>
-      <h4>Оформлений документ:</h4>
+      <h4>Оформлений документ :</h4>
       <br></br>
       <h4>Зміст:</h4>
       <textarea id='documents_content' class="form-control" rows="5" style="width:100%"></textarea>
-		</div>
+      <br></br>
+      <h4>Отримувач</h4>
+      <select>
+        <option value="court">Суд</option>
+         <option value="major_administration">Адміністрація міського голови</option>
+         <option value="administrative_services">Департамент адміністративних послуг</option>
+         <option value="humanitarian_policy">Департамент  гуманітарної політики</option>
+         <option value="economical_development">Департамент економічного розвитку</option>
+         <option value="infrostructure_department">Департамент житлового господарства та інфраструктури</option>
+         <option value="waste_department">Департамент з питань поводження з відходами</option>
+         <option value="building_city_department">Департамент містобудування</option>
+         <option value="development_department">Департамент розвитку</option>
+         <option value="financial_policy_department">Департамент фінансової  політики</option>
+         <option value="legacy_department">Юридичний департамент</option>
 
+      </select>
+			<br></br>
+		 <a href="main.html"><button type="button" onclick="sendingDocument()" class="btn btn-primary">Перейти до надсилання</button></a>
+    </div>
 		<script src="js/jquery-3.2.1.slim.min.js"></script>
 		<script src="js/popper.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>
+
 </html>

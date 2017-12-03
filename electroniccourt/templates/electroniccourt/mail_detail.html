@@ -1,0 +1,87 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<title>Деталі</title>
+		<link rel="shortcut icon" href="{% static 'images/icon.png' %}" type="image/jpg">
+		<meta name="author" content="LeagueOfJustice">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/customFont.css' %}">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-faded" style="background: #f0f0f0">
+			<a class="navbar-brand" href="main.html">
+				<img src="{% static 'images/icon.png' %}" width="50" height="50" class="d-inline-block align-top" alt="">
+			</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		    	<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarNavDropdown">
+		  		<ul class="navbar-nav mr-auto">
+		  		</ul>
+		    	<ul class="nav navbar-nav">
+		      		<li class="nav-item active">
+		        		<a class="nav-link" href="main.html">Головна <span class="sr-only">(current)</span></a>
+		      		</li>
+		      		<li class="nav-item dropdown">
+		        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          		Документи
+		        		</a>
+		        		<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		          			<a class="dropdown-item" href="recieved.html">Отримані</a>
+		          			<a class="dropdown-item" href="sent.html">Надіслані</a>
+		        		</div>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="#">Відгуки</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="#" style="color:#6b6a6a"></a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="login.html" style="color:#6b6a6a">Вихід</a>
+		      		</li>
+		    	</ul>
+		  	</div>
+		</nav>
+
+		<div class="container" style=" text-align: right">
+			<br>
+    		<br>
+    		<p>Господарський суд Львівської області</p>
+    		<p> 79014, м. Львів вул. Личаківська, 128 </p>
+      		<p>Від: <b>{{mail.get_document.date_created}}</b></p>
+      		<p>Номер справи: <b>{{mail.get_document.case_id}}</b></p>
+      		<p>Позивач: <b>{{mail.get_document.plaintiff}}</b></p>
+      		<p>Відповідач: <b>{{mail.get_document.defendant}}</b></p>
+      		<p>Предмет спору: <b>{{mail.get_document.subject}}</b></p>
+			<h1 style="text-align: center">{{mail.get_document.id_document_template}}</h1>
+			<div style="text-align: left">
+	        	<h3>{{mail.get_document.statement}}</h3>
+			</div>
+			<br></br>
+			<h2 style="text-align: left">Відгук:</h2>
+			<div style="text-align: left">
+	        	<p>{{mail.feedback}}</p>
+			</div>
+		</div>
+
+		<script src="{% static 'js/jquery-3.2.1.slim.min.js' %}"></script>
+		<script src="{% static 'js/popper.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script>
+			function cloud(){
+				alert("Cloud");
+			}
+			function print(){
+				alert("Print");
+			}
+		</script>
+	</body>
+</html>

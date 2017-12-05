@@ -96,7 +96,7 @@
 					<div class="card-footer">
 						<p class="text-muted">Заява про видачу наказу</p>
 					</div>
-				</a>
+				</button>
 			</div>
 			<div class="card">
 				<a href="create_document/statement_about_copy_of_decision.html">
@@ -106,7 +106,7 @@
 					<div class="card-footer">
 						<p class="text-muted">Заява про видачу копії рішення ухвали</p>
 					</div>
-				</a>
+				</button>
 			</div>
 			<div class="card">
 				<a href="create_document/petition.html">
@@ -116,7 +116,7 @@
 					<div class="card-footer">
 						<p class="text-muted">Клопотання</p>
 					</div>
-				</a>
+				</button>
 			</div>
 		</div>
 
@@ -130,7 +130,7 @@
 					<div class="card-footer">
 						<p class="text-muted">Позовна заява</p>
 					</div>
-				</a>
+				</button>
 			</div>
 			<div class="card">
 				<a href="create_document/statement.html">
@@ -140,7 +140,7 @@
 					<div class="card-footer">
 						<p class="text-muted">Заява про ознайомлення з матеріалами</p>
 					</div>
-				</a>
+				</button>
 			</div>
 			<div class="card">
 				<a href="create_document/counting_requirements.html">
@@ -150,7 +150,55 @@
 					<div class="card-footer">
 						<p class="text-muted">Розрахунок позовних вимог</p>
 					</div>
-				</a>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" style="width: 100%">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Закрити</span></button>
+				</div>
+				<div class="modal-body">
+					<div style=" text-align: right">
+					<form id='creating_document'>
+        		<p>Господарський суд Львівської області</p>
+        		<p> 79014, м. Львів вул. Личаківська, 128 </p>
+						<form>
+						 <div class="form-group">
+							 <label for="usr">Від:</label>
+							 <input type="text" class="form-control" id="author-name" >
+						 </div>
+						 <div class="form-group">
+							 <label for="usr">Номер справи:</label>
+							 <input type="text" class="form-control" id="deal-name">
+						 </div>
+						 <div class="form-group">
+							 <label for="usr">Позивач:</label>
+							 <input type="text" class="form-control" id="Plaintiff">
+						 </div>
+						 <div class="form-group">
+							 <label for="usr">Відповідач:</label>
+							 <input type="text" class="form-control" id="Defendant">
+						 </div>
+						 <div class="form-group">
+							 <label for="usr">Предмет спору:</label>
+							 <input type="text" class="form-control" id="Subject">
+						 </div>
+					 </form>
+					 <h1 style="text-align: center">Заперечення на відзив</h1>
+						<div class="inpUt">
+        		<textarea id='text-document' class="form-controll" rows="15"></textarea>
+					</div>
+        		<br></br>
+				</div>
+			</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+					<button type="button" class="btn btn-primary">Зберегти зміни</button>
+				</div>
 			</div>
 		</div>
 	</div>

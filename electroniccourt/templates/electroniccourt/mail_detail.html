@@ -56,19 +56,23 @@
     		<br>
     		<p>Господарський суд Львівської області</p>
     		<p> 79014, м. Львів вул. Личаківська, 128 </p>
-      		<p>Від: <b>{{mail.get_document.date_created}}</b></p>
+      		<p>Від: <b>{{mail.get_document.date}}</b></p>
       		<p>Номер справи: <b>{{mail.get_document.case_id}}</b></p>
       		<p>Позивач: <b>{{mail.get_document.plaintiff}}</b></p>
       		<p>Відповідач: <b>{{mail.get_document.defendant}}</b></p>
       		<p>Предмет спору: <b>{{mail.get_document.subject}}</b></p>
-			<h1 style="text-align: center">{{mail.get_document.id_document_template}}</h1>
+			<h1 style="text-align: center">{{mail.get_document.template}}</h1>
 			<div style="text-align: left">
 	        	<h3>{{mail.get_document.statement}}</h3>
 			</div>
 			<br></br>
-			<h2 style="text-align: left">Відгук:</h2>
+			<h2 style="text-align: left">Відгуки:</h2>
 			<div style="text-align: left">
-	        	<p>{{mail.feedback}}</p>
+				{% for feedback in feedbacks %}
+					<span>{{feedback.publish_date}}</span>
+					<span>{{feedback.author.name}}</span>
+					<p>{{feedback.text}}</p>
+				{% endfor %}
 			</div>
 		</div>
 

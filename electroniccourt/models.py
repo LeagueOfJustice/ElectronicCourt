@@ -22,28 +22,77 @@ class Document_template(models.Model):
 
 class Document(models.Model):
     id_document = models.AutoField(primary_key=True)
-    id_document_template = models.OneToOneField(Document_template)
-    id_creator = models.OneToOneField(User)
-    date_created = models.DateTimeField(default=timezone.now)
+    template = models.OneToOneField(Document_template)
+    author = models.OneToOneField(User)
+    date = models.DateField(default=timezone.now)
     case_id = models.CharField(max_length=20)
     plaintiff = models.CharField(max_length=50)
     defendant = models.CharField(max_length=50)
     subject = models.CharField(max_length=50)
     statement = models.TextField()
+    state = models.CharField(max_length=50, default="new")
 
     def __str__(self):
-        return self.subject
+    	result = (str(self.template.name) + ' ' + str(self.subject) + ' ' + str(self.case_id))
+    	return result
+        #return self.subject
+
+    def set_rejected(self):
+        self.state = "rejected"
+        self.save()
+
+    def set_corrected(self):
+        self.state = "corrected"
+        self.save()
+
+    def set_accepted(self):
+        self.state = "accepted"
+        self.save()
 
 class Mail(models.Model):
     id_mail = models.AutoField(primary_key=True)
-    id_sender = models.OneToOneField(User, related_name='sender')
-    id_reciever = models.OneToOneField(User, related_name='reciever')
-    id_document = models.OneToOneField(Document, related_name='document')
-    date_send = models.DateTimeField(default=timezone.now)
-    feedback = models.TextField(default='')
+    sender = models.OneToOneField(User, related_name='sender')
+    reciever = models.OneToOneField(User, related_name='reciever')
+    document = models.OneToOneField(Document, related_name='document')
+    sending_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.id_document.subject
+        return self.document.subject
 
     def get_document(self):
-        return self.id_document
+        return self.document
+
+    def send(self):
+        self.sending_date = timezone.now
+        self.save()
+
+class Feedback(models.Model):
+    id_feedback = models.AutoField(primary_key=True)
+    mail = models.OneToOneField(Mail, related_name="mail")
+    author = models.OneToOneField(User, related_name="author")
+    publish_date = models.DateTimeField(default=timezone.now)
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text
+
+    def publish(self):
+    	self.publish_date = timezone.now
+    	self.save()
+
+class Permission(models.Model):
+    id_permission = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50, default="")
+
+    def __str__(self):
+    	return self.name
+
+class User_Permission(models.Model):
+	id_user = models.ManyToManyField(User, related_name="user")
+	id_permission = models.ManyToManyField(Permission, related_name="permission")
+
+	def __str__(self):
+		result = (str(self.id_user.name) + ' ' + str(self.id_permission.name))
+		#return ('%s %s' % (self.id_user.name, self.id_permission))
+		return result
+		

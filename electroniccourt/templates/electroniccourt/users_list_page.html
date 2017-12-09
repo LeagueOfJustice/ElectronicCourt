@@ -53,8 +53,6 @@
 
 		<div class="container">
 			<br>
-			<center><a href="document_tamplates.html"><button type="button" class="btn btn-primary">Створити документ</button></a></center>
-			<br>
 			<h3>Користувачі:</h3>
 			<br>
 			<div class="row" style="margin-bottom: 10px">
@@ -64,35 +62,22 @@
 				<div class = "col-3">
 					<h5>Назва департаменту</h5>
 				</div>
-				
 				<div class = "col-2">
-					<h5></h5>
+					<h5>Логін</h5>
 				</div>
 			</div>
 			<div class="list-group">
 				{% for user in users %}
-				<a href="{% url 'mail_detail' id_mail=mail.id_mail %}" class="list-group-item list-group-item-action">
+				<a href="#" class="list-group-item list-group-item-action">
 					<div class="row">
 						<div class = "col-3">
-							<img src="{% static 'images/document.png' %}" height="30" width="30" alt="">
-							<span>{{user.get_document.id_document_template}}</span>
+							<span>{{user.id_user}}</span>
 						</div>
 						<div class = "col-3">
-							<span>{{user.get_user.user_id}}</span>
+							<span>{{user.name}}</span>
 						</div>
 						<div class="col-2">
-							<span>{{user.id_sender.name}}</span>
-						</div>
-
-						<div class="col-2">
-							<span>
-								<button type="button" class="btn btn-link" onclick="cloud()">
-									<img src="{% static 'images/cloud.png' %}" height="30" width="30" alt="">
-								</button>
-								<button type="button" class="btn btn-link" onclick="print()">
-									<img src="{% static 'images/print.png' %}" height="30" width="30" alt="">
-								</button>
-							</span>
+							<span>{{user.login}}</span>
 						</div>
 					</div>
 				</a>

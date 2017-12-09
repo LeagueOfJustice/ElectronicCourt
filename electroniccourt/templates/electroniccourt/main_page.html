@@ -80,16 +80,16 @@
 					<div class="row">
 						<div class = "col-3">
 							<img src="{% static 'images/document.png' %}" height="30" width="30" alt="">
-							<span>{{mail.get_document.id_document_template}}</span>
+							<span>{{mail.get_document.template}}</span>
 						</div>
 						<div class = "col-3">
 							<span>{{mail.get_document.case_id}}</span>
 						</div>
 						<div class="col-2">
-							<span>{{mail.id_sender.name}}</span>
+							<span>{{mail.sender.name}}</span>
 						</div>
 						<div class="col-2">
-							<span>{{mail.date_send}}</span>
+							<span>{{mail.sending_date}}</span>
 						</div>
 						<div class="col-2">
 							<span>

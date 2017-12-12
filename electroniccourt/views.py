@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
-from electroniccourt.forms import UserForm
+from electroniccourt.forms import UserForm, DocumentForm
 from .models import *
 
 
@@ -38,3 +38,23 @@ def new_user(request):
     else:
         form = UserForm()
     return render(request, 'electroniccourt/new_user.html', {'form': form})
+
+
+def document_details(request):
+    details = Document_template()
+    return render(request, 'electroniccourt/document_detail.html', details)
+
+
+def creating_document(request):
+    if request.method == "POST":
+        form = DocumentForm(request.POST)
+        if form.is_valid():
+            document_form = form.save(commit=False)
+            document_form.date_created = timezone.now()
+            document_form.id_creator = User.objects.get(id_user=1)
+            document_form.save()
+            return redirect('main_page')
+    else:
+        form = DocumentForm()
+
+    return render(request, 'electroniccourt/creating_document.html', {'form': form})

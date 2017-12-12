@@ -97,7 +97,12 @@ class User_Permission(models.Model):
 	id_permission = models.ManyToManyField(Permission, related_name="permission")
 
 	def __str__(self):
-		result = (str(self.id_user.name) + ' ' + str(self.id_permission.name))
+		name_str = ""
+		permission_str = ""
+		for name in self.id_user.all():
+			name_str += name.name + " "
+		for permission in self.id_permission.all():
+			permission_str += permission.name + " "
+		result = name_str + permission_str
 		#return ('%s %s' % (self.id_user.name, self.id_permission))
 		return result
-		

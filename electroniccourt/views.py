@@ -19,8 +19,7 @@ def mail_detail(request, id_mail):
 
 def users_list_page(request):
     users = User.objects.all()
-    user_permissions = User_Permission.objects.all()
-    return render(request, 'electroniccourt/users_list_page.html', {'users': users, 'permissions': permissions})
+    return render(request, 'electroniccourt/users_list_page.html', {'users': users})
 
 
 def admin_page(request):

@@ -3,8 +3,13 @@ from django.utils import timezone
 
 # Create your models here.
 
+class Role(models.Model):
+	id_role = models.AutoField(primary_key=True)
+	name = models.CharField(max_length=50, default='')
+
 class User(models.Model):
     id_user = models.AutoField(primary_key=True)
+    role = models.ForeignKey(Role, default=1)
     login = models.CharField(max_length=30)
     password = models.CharField(max_length=30)
     name = models.CharField(max_length=50, default='')
@@ -22,8 +27,8 @@ class Document_template(models.Model):
 
 class Document(models.Model):
     id_document = models.AutoField(primary_key=True)
-    template = models.OneToOneField(Document_template)
-    author = models.OneToOneField(User)
+    template = models.ForeignKey(Document_template)
+    author = models.ForeignKey(User)
     date = models.DateField(default=timezone.now)
     case_id = models.CharField(max_length=20)
     plaintiff = models.CharField(max_length=50)
@@ -51,9 +56,9 @@ class Document(models.Model):
 
 class Mail(models.Model):
     id_mail = models.AutoField(primary_key=True)
-    sender = models.OneToOneField(User, related_name='sender')
-    reciever = models.OneToOneField(User, related_name='reciever')
-    document = models.OneToOneField(Document, related_name='document')
+    sender = models.ForeignKey(User, related_name='sender')
+    reciever = models.ForeignKey(User, related_name='reciever')
+    document = models.ForeignKey(Document, related_name='document')
     sending_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
@@ -68,8 +73,8 @@ class Mail(models.Model):
 
 class Feedback(models.Model):
     id_feedback = models.AutoField(primary_key=True)
-    mail = models.OneToOneField(Mail, related_name="mail")
-    author = models.OneToOneField(User, related_name="author")
+    mail = models.ForeignKey(Mail, related_name="mail")
+    author = models.ForeignKey(User, related_name="author")
     publish_date = models.DateTimeField(default=timezone.now)
     text = models.TextField()
 

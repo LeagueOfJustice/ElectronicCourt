@@ -38,12 +38,6 @@ def new_user(request):
         form = UserForm()
     return render(request, 'electroniccourt/new_user.html', {'form': form})
 
-
-def document_details(request):
-    details = Document_template()
-    return render(request, 'electroniccourt/document_detail.html', details)
-
-
 def creating_document(request):
     if request.method == "POST":
         form = DocumentForm(request.POST)

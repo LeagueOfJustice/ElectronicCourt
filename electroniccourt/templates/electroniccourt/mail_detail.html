@@ -69,8 +69,8 @@
 			<h2 style="text-align: left">Відгуки:</h2>
 			<div style="text-align: left">
 				{% for feedback in feedbacks %}
-					<span>{{feedback.publish_date}}</span>
 					<span>{{feedback.author.name}}</span>
+					<span>{{feedback.publish_date}}</span>
 					<p>{{feedback.text}}</p>
 				{% endfor %}
 			</div>

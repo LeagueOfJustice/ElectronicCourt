@@ -7,8 +7,7 @@ from .models import *
 # Create your views here.
 
 def main_page(request):
-    # mails = Mail.objects.all().filter(sender__id_user = 1).order_by('sending_date')
-    mails = Mail.objects.all().order_by('sending_date')
+    mails = Mail.objects.all().filter(sender__role__name="Господарський суд")
     return render(request, 'electroniccourt/main_page.html', {'mails': mails})
 
 def mail_detail(request, id_mail):

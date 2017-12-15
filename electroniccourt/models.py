@@ -4,8 +4,11 @@ from django.utils import timezone
 # Create your models here.
 
 class Role(models.Model):
-	id_role = models.AutoField(primary_key=True)
-	name = models.CharField(max_length=50, default='')
+    id_role = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50, default='')
+
+    def __str__(self):
+        return self.name
 
 class User(models.Model):
     id_user = models.AutoField(primary_key=True)

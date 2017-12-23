@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
+
 # Create your models here.
 
 class Role(models.Model):
@@ -9,6 +10,7 @@ class Role(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class User(models.Model):
     id_user = models.AutoField(primary_key=True)
@@ -20,6 +22,7 @@ class User(models.Model):
     def __str__(self):
         return self.name
 
+
 class Document_template(models.Model):
     id_document_template = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30)
@@ -27,6 +30,7 @@ class Document_template(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Document(models.Model):
     id_document = models.AutoField(primary_key=True)
@@ -41,9 +45,9 @@ class Document(models.Model):
     state = models.CharField(max_length=50, default="new")
 
     def __str__(self):
-    	result = (str(self.template.name) + ' ' + str(self.subject) + ' ' + str(self.case_id))
-    	return result
-        #return self.subject
+        result = (str(self.template.name) + ' ' + str(self.subject) + ' ' + str(self.case_id))
+        return result
+        # return self.subject
 
     def set_rejected(self):
         self.state = "rejected"
@@ -56,6 +60,7 @@ class Document(models.Model):
     def set_accepted(self):
         self.state = "accepted"
         self.save()
+
 
 class Mail(models.Model):
     id_mail = models.AutoField(primary_key=True)
@@ -74,6 +79,7 @@ class Mail(models.Model):
         self.sending_date = timezone.now
         self.save()
 
+
 class Feedback(models.Model):
     id_feedback = models.AutoField(primary_key=True)
     mail = models.ForeignKey(Mail, related_name="mail")
@@ -85,27 +91,29 @@ class Feedback(models.Model):
         return self.text
 
     def publish(self):
-    	self.publish_date = timezone.now
-    	self.save()
+        self.publish_date = timezone.now
+        self.save()
+
 
 class Permission(models.Model):
     id_permission = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50, default="")
 
     def __str__(self):
-    	return self.name
+        return self.name
+
 
 class User_Permission(models.Model):
-	id_user = models.ManyToManyField(User, related_name="user")
-	id_permission = models.ManyToManyField(Permission, related_name="permission")
+    id_user = models.ManyToManyField(User, related_name="user")
+    id_permission = models.ManyToManyField(Permission, related_name="permission")
 
-	def __str__(self):
-		name_str = ""
-		permission_str = ""
-		for name in self.id_user.all():
-			name_str += name.name + " "
-		for permission in self.id_permission.all():
-			permission_str += permission.name + " "
-		result = name_str + permission_str
-		#return ('%s %s' % (self.id_user.name, self.id_permission))
-		return result
+    def __str__(self):
+        name_str = ""
+        permission_str = ""
+        for name in self.id_user.all():
+            name_str += name.name + " "
+        for permission in self.id_permission.all():
+            permission_str += permission.name + " "
+        result = name_str + permission_str
+        # return ('%s %s' % (self.id_user.name, self.id_permission))
+        return result

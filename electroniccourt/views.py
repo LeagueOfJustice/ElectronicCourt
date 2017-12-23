@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
-from electroniccourt.forms import UserForm, DocumentForm
+from electroniccourt.forms import UserForm, DocumentForm, TemplateForm
 from .models import *
 
 
@@ -9,6 +9,7 @@ from .models import *
 def main_page(request):
     mails = Mail.objects.all().filter(sender__role__name="Господарський суд")
     return render(request, 'electroniccourt/main_page.html', {'mails': mails})
+
 
 def mail_detail(request, id_mail):
     mail = get_object_or_404(Mail, id_mail=id_mail)
@@ -37,16 +38,32 @@ def new_user(request):
         form = UserForm()
     return render(request, 'electroniccourt/new_user.html', {'form': form})
 
+
 def creating_document(request):
     if request.method == "POST":
         form = DocumentForm(request.POST)
         if form.is_valid():
             document_form = form.save(commit=False)
             document_form.date_created = timezone.now()
-            document_form.id_creator = User.objects.get(id_user=1)
             document_form.save()
             return redirect('main_page')
     else:
         form = DocumentForm()
-
     return render(request, 'electroniccourt/creating_document.html', {'form': form})
+
+
+def document_templates(request):
+    document_templates = Document_template.objects.all()
+    return render(request, 'electroniccourt/document_templates.html', {'document_templates': document_templates})
+
+
+def new_template(request):
+    if request.method == "POST":
+        form = TemplateForm(request.POST)
+        if form.is_valid():
+            new_templates = form.save(commit=False)
+            new_templates.save()
+            return redirect('document_templates')
+    else:
+        form = TemplateForm()
+    return render(request, 'electroniccourt/new_template.html', {'form': form})

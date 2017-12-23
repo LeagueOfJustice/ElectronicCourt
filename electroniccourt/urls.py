@@ -9,4 +9,6 @@ urlpatterns = [
     url(r'^admin_page/$', views.admin_page, name='admin_page'),
     url(r'^new_user/$', views.new_user, name='new_user'),
     url(r'^creating_document/$', views.creating_document, name='creating_document'),
+    url(r'^document_templates/$', views.document_templates, name='document_templates'),
+    url(r'^new_template/$', views.new_template, name='new_template'),
 ]
